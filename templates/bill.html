@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bill</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Bill🧾</h1>
+            <p>🙏 Thank you for ordering at VIT College Canteen! 🍽️🎉</p>
+        </header>
+
+        <section id="bill">
+            <h2>📋Order Summary for {{ username }}</h2>
+            {% for item in items %}
+                <p><strong>Item:</strong> {{ item['Itemname'] }} | <strong>Quantity:</strong> {{ item['Quantity'] }} | <strong>Total:</strong> ₹{{ item['Total'] }}</p>
+            {% endfor %}
+            <hr>
+            <p><strong>💰Total Cost:</strong> ₹{{ total_cost }}</p>
+            <a class="btn" href="/">🔙 Back to Login 🍽️</a>
+        </section>
+    </div>
+</body>
+</html>
